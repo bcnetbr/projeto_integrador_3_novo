@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <ui:composition template="/DecomCity.xhtml">
+
+
+        <ui:define name="titulo">Teste</ui:define>
+        <ui:define name="conteudo">
+            <link rel="stylesheet" href="Login.css"/>
+            <div class="modal fade" id="modalCadastroForm" tabindex="-1" 
+                 role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" style="margin-top: 240px">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+                            <form >
+                                <div class="form-row" >
+                                    <div class="form-group col">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">x</span>
+                                        </button>
+                                        <h5 class="frase">Faça seu cadastro. Ou Clique aqui para entrar.</h5>
+
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group1 col">
+                                        <label class="label" for="inputState" >Tipo de usuário</label>
+                                        <select id="inputState" class="form-control" >
+                                            <option selected="selected" class="select">Choose...</option>
+                                            <option id="Usuário comum" class="select">Usuário comum</option>
+                                            <option id="Usuário empreendedor" class="select">Empreendedor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputNome">Nome</label>
+                                        <input type="text" class="form-control" id="inputNome" placeholder="Nome"/>
+                                    </div>
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group2 col">
+                                        <label class="label" for="inputDataNascimento">Data de nascimento</label>
+                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Data de nascimento" />
+                                    </div>
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputSenha" >Senha</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group2 col">
+                                        <label class="label" for="inputEmail">E-mail</label>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail"/>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group3 col" >
+                                        <button type="submit" class="btnCancelar">Cancelar</button>
+
+                                    </div>
+                                    <div class="form-group3 col" >
+                                        <button type="submit" class="btnEnviar">Enviar</button>
+                                    </div>
+
+
+
+                                </div>    
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-center">
+                <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalCadastroForm">Launch Modal Login Form</a>
+            </div>
+            <div class="modal fade-modal" id="modalLoginForm" tabindex="-1" 
+                 role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" style="margin-top: 100px">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+                            <form>
+                                <div class="form-row" >
+                                    <div class="form-group col">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">x</span>
+                                         </button>
+                                        <h5 class="frase">Seja bem vindo, entre com seus dados!</h5>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputSenha" >Senha</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-row ">
+                                    <div class="texto lembrete text-right"  style="width: 100%">
+                                        Esqueceu sua senha?
+                                    </div> 
+                                </div>
+
+                                
+                                <div class="form-row">
+                                    <div class="form-group3 col" >
+                                        <button type="submit" class="btnCancelar">Cancelar</button>
+
+                                    </div>
+                                    <div class="form-group3 col" >
+                                        <button type="submit" class="btnEnviar">Entrar</button>
+                                    </div>
+
+
+
+                                </div>    
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-center">
+                <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch Modal Login Form</a>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

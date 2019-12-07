@@ -1,0 +1,343 @@
+.cab{
+    width:100%; 
+    background-color:#c63a39; 
+    height:60px; 
+    line-height:60px;
+    border-bottom:1px solid #dddddd;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: #f9f9f9;
+    font-family: Century Gothic;
+}
+#check{
+    display:none;
+}
+#icone{
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+    margin-left: 288px;
+    margin-top: -20px;
+    color: white;
+}
+.barra{
+    background-color: #c63a39;
+    height: 30%;
+    width: 300px;
+    position: absolute;
+    transition: all .2s linear;
+    left: -300px;
+    border-bottom: 2px solid #c63a39;
+    z-index: 50;
+}
+
+.link{
+    background-color: #fff;
+    padding: 5px;
+    font-family: Century Gothic;
+    font-size: 12pt;
+    transition: all .2s linear;
+    color: #c63a39;
+    border-bottom: 2px solid #c63a39;
+    opacity: 0;
+    margin-top: 100px;
+}
+
+.link:hover{
+    background-color: #f0c2c2;
+}
+
+#check:checked ~ .barra{
+    transform: translateX(300px);
+}
+#check:checked ~ .barra nav a .link{
+    opacity: 1;
+    margin-top: 0;
+    transition-delay: .2s; 
+}
+
+.Rodape{
+
+    background-color: #5b5b5f;
+    position:absolute;
+    width:100%;
+    bottom: 0;
+    height: 100px;
+
+}
+
+.item{
+    color: #cbd0d3;
+    font-family: Helvetica;
+    font-size: 13px;
+    font-weight: bold;
+
+}
+.lista{
+    list-style-type: none;
+    margin-left: 61px;
+    margin-top: 30px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    width: 100%;
+    position: absolute;
+    top: 59px;
+}
+nav a{
+    text-decoration: none;
+}
+.imagem{
+    margin-left: 1440px;
+    margin-top: -4px;
+    width: 75px; 
+    height: 58px;
+}
+label{
+    font-family: Century Gothic;    
+}
+h1{
+    font-family: Century Gothic;
+   
+}
+h2{
+    font-family: Century Gothic;    
+}
+h3{
+    font-family: Century Gothic; 
+}
+p{
+    margin-left:  350px;
+    margin-right: 450px;
+    text-align: center;
+    margin-top: 30px;
+    font-family: Century Gothic;
+}
+
+.Fundo{
+    background-image: url("Detroit.png");
+    background-repeat: no-repeat;
+    background-position: right 55% bottom -30%;
+    width: 100%;
+    height: 250px;  
+    opacity: 0.3;
+
+}
+.fotos{
+    width:150px;
+    height:200px;
+    border:4px solid #999;
+    background:transparent url(/foto.png);
+    margin-right: 100%;
+    margin-left:  300px;
+    margin-top: -5px;
+
+}
+.moldura {
+    width: 404px; 
+    border:8px inset #5f6632;
+    padding:15px;
+    background: #b1b1c3;
+
+}
+
+.formulario {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-top: -8px;
+    margin-left: 300px;
+    font-family: Century Gothic;
+    width: 250px;
+}
+
+.enviar {
+    color: white;
+    margin: 1px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Century Gothic;
+    background-color: #C63A39;
+    text-align: center;
+    width: 150px;
+    height: 38px;
+    margin-left: 300px;
+    margin-top: 220px;
+}
+.botaoCadastro {
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Century Gothic;
+    background-color: #C63A39;
+    text-align: center;
+    width: 113px;
+    height: 28px;
+    margin-left: 350px;
+}
+
+.selecionar{
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-left: 300px;
+    margin-top: -8px;
+    font-family: Century Gothic;
+    width: 250px;
+}
+.cep{
+    margin-bottom: 50px;
+    margin-left:0px;
+    font-family: Century Gothic;
+}
+
+.identificador{
+    width: 100%;
+    margin-left: 300px;
+    font-family: Century Gothic;
+} 
+.observações{
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: -8px;
+    margin-left: 300px;
+    font-family: Century Gothic;
+    width: 250px;
+}
+.resultado{
+    height: 50px;
+    width: 350px;
+    margin: 8px 0;
+    margin-top: 15px;
+    font-family: Century Gothic;
+    padding: 10px 15px;
+    color: white;
+    background-color: #C63A39; 
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    margin-left: -50px;
+
+}
+.play, .pause {
+    width:30px;
+    height:30px;
+    vertical-align: middle;
+}
+
+.mapa{
+    height: 500px; 
+    width: 520px; 
+    border-radius: 20px;
+    margin-bottom: 50px;
+    margin-left: 190px;
+    margin-top: 20px;
+}
+
+
+.mapa2{
+    height: 550px; 
+    width: 700px; 
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-right: 60px
+}
+.mapa3{
+    height: 585px; 
+    width: 600px; 
+    border-radius: 20px;
+    margin-top: 52px;
+    margin-left: 80px;
+}
+.caixa {
+    display: block;
+    position: relative;
+    padding-left: 230px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #C63A39;
+
+}
+
+.caixa input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 20px;
+    margin-left: 200px;
+    margin-top: 3px;
+}
+
+.caixa:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.caixa input:checked ~ .checkmark {
+    background-color: #C63A39;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.caixa input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.caixa .checkmark:after {
+    left: 10px;
+    top: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.redesSociais{
+    width:30px; 
+    margin-top: 5px; 
+    margin-right: 8px;
+}
+
+

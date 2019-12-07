@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html    
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+    <head>
+        <title><ui:insert name="Titulo"></ui:insert></title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="DecomCity.css" rel="stylesheet" />
+        <link rel="stylesheet" href="Login.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="cab">
+            <input type="checkbox" id="check"/>
+            <label id="icone" for="check"><img src="icone.png" style="width: 25px; height: 20px"/></label>
+            <div class="barra">
+                <nav>
+                    <a href="/Principal.xhtml"><div class="link">Home</div></a>
+                    <a href="/Sobre.xhtml"><div class="link">Sobre</div></a>
+                    <a href="/cadastroNecessidade.xhtml"><div class="link">Cadastrar necessidade</div></a>
+                    <a href="/Votacoes.xhtml"><div class="link">Votações</div></a>
+                    <a href="/Resultados.xhtml"><div class="link">Resultados</div></a>
+                    <a href="/Perfil.xhtml"><div class="link">Perfil</div></a>
+                    <a id="botaoLogin" href="#"><div class="link">Entrar</div></a>
+                    <a id="btnCadastro" href="#"><div class="link">Cadastrar</div></a>
+
+                    <a href="/Principal1.xhtml"><img src="logo_colorida.png"   
+                                                     class="link" style=" width: 160px; height: 133px; margin-left: 70px; border-bottom: 
+                                                     none; background-color: transparent"/></a>
+                </nav>
+            </div>
+            <div class="col">
+                <img src="Logo.png" class="imagem"/>
+            </div>
+        </div>
+        <div id="xxx">
+            <ui:insert name="conteudo"></ui:insert>
+        </div>
+        <div>
+            <div class="Rodape">
+                <div class="">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="lista" style="margin-left: 300px">
+                                <a href="/Principal.xhtml"><li class="item">Home</li></a>
+                                <a href="/cadastroNecessidade.xhtml"><li class="item">Cadastrar necessidade</li></a>
+                                <a href="/Votacoes.xhtml"><li class="item">Votações </li></a>
+                                <a href="/Resultados.xhtml"><li class="item">Resultados</li></a>
+                            </ul>
+                        </div>
+                        <div class="col" style="margin-right: 870px">
+                            <ul class="lista">
+                                <a id="btnCadastro2" href="#"><li class="item">Cadastro</li></a>
+                                <a id="botaoLogin2" href="#"><li class="item">Entrar</li></a>
+                                <a href="Sobre.xhtml"><li class="item">Sobre</li></a>
+                                <a href="/Perfil.xhtml"><li class="item">Perfil</li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        </div>  
+        <div class="modal fade-modal" id="modalLoginForm" tabindex="-1" 
+             role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" style="margin-top: 150px">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row" >
+                                <div class="form-group col">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">x</span>
+                                    </button>
+                                    <h5 class="frase">Seja bem vindo, entre com seus dados!</h5>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group2 col" >
+                                    <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group2 col" >
+                                    <label class="label" for="inputSenha" >Senha</label>
+                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+                            </div>
+                            <div class="form-row ">
+                                <div class="texto lembrete text-right"  style="width: 100%">
+                                    Esqueceu sua senha?
+                                </div> 
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group3 col" >
+                                    <button type="submit" class="btnEnviar">Entrar</button>
+                                </div>
+                                <div class="form-group3 col" >
+                                    <button type="submit" class="btnCancelar">Cancelar</button>
+                                </div>
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalCadastroForm" tabindex="-1" 
+             role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" style="margin-top: 150px">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form >
+                            <div class="form-row" >
+                                <div class="form-group col">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">x</span>
+                                    </button>
+                                    <h5 class="frase">Faça seu cadastro. Ou Clique aqui para entrar.</h5>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group1 col">
+                                    <label class="label" for="inputState" >Tipo de usuário</label>
+                                    <select id="inputState" class="form-control" style="border-radius: 20px; border-color: #c63a39" >
+                                        <option selected="selected" class="select">Choose...</option>
+                                        <option id="Usuário comum" class="select">Usuário comum</option>
+                                        <option id="Usuário empreendedor" class="select">Empreendedor</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group2 col" >
+                                    <label class="label" for="inputNome">Nome</label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+                                <div class="form-group2 col" >
+                                    <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group2 col">
+                                    <label class="label" for="inputDataNascimento">Data de nascimento</label>
+                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Data de nascimento" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+                                <div class="form-group2 col" >
+                                    <label class="label" for="inputSenha" >Senha</label>
+                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group2 col">
+                                    <label class="label" for="inputEmail">E-mail</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" style="border-radius: 20px; border-color: #c63a39"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group3 col" >
+                                    <button type="submit" class="btnCancelar">Cancelar</button>
+                                </div>
+                                <div class="form-group3 col" >
+                                    <button type="submit" class="btnEnviar">Enviar</button>
+                                </div>
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $("#btnCadastro").click(function () {
+                $("#modalCadastroForm").modal();
+            });
+            $("#botaoLogin").click(function () {
+                $("#modalLoginForm").modal();
+            });
+
+            $("#btnCadastro2").click(function () {
+                $("#modalCadastroForm").modal();
+            });
+
+            $("#botaoLogin2").click(function () {
+                $("#modalLoginForm").modal();
+            });
+
+        </script>
+    </body>
+</html>

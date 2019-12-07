@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/DecomCity.xhtml">
+        <ui:define name="conteudo">
+            <link rel="stylesheet" href="Login.css"/>
+            <div class='row'>
+                <div class='col-4'>
+                    <h1 style="color: #C63A39; margin-left: 48%; margin-top: 30px">Filtro</h1>
+
+                    <form>
+                        <label for="country" class="identificador">Selecione o País</label>
+                        <select class="selecionar">
+                            <option value="">Brasil</option>
+                            <option value="">Estados Unidos</option>
+                            <option value="">Russia</option>
+                        </select>
+                        <label for="country" class="identificador">Selecione o Estado</label>
+                        <select class="selecionar">
+                            <option value="">Goiania</option>
+                            <option value="">São Paulo</option>
+                            <option value="">Rio de Janeiro</option>
+                        </select>
+                        <label for="country" class="identificador">Selecione a Cidade</label>
+                        <select class="selecionar">
+                            <option value="">Goiania</option>
+                            <option value="">São Paulo</option>
+                            <option value="">Rio de Janeiro</option>
+                        </select>
+                        <label for="country" class="identificador">Selecione o Bairro</label>
+                        <select class="selecionar">
+                            <option value="">Goiania</option>
+                            <option value="">São Paulo</option>
+                            <option value="">Rio de Janeiro</option>
+                        </select>
+                        <label for="country" class="identificador">Selecione a necessidade</label>
+                        <select class="selecionar">
+                            <option value="">Supermecado</option>
+                            <option value="">Farmacia</option>
+                            <option value="">Panificadora</option>
+                        </select>
+                        <div>
+                            <button class="enviar" style="margin-top: 0;">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class='col-1'>
+                    <h1 style='color: #C63A39; margin-top: 30px '>Resultados</h1>
+                    <p/>
+                    <div class="resultado">
+                        Resultado 1 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 2 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 3 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 4 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 5 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 6 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 7 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+                    <div class="resultado">
+                        Resultado 8 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                    </div>
+
+
+                </div>
+                <script type="text/javascript">
+
+                    function toggle(el) {
+                        if (el.className != "pause")
+                        {
+                            el.src = 'off.png';
+                            el.className = "pause";
+                        } else if (el.className == "pause")
+                        {
+                            el.src = 'on.png';
+                            el.className = "play";
+                        }
+
+                        return false;
+                    }
+                </script>
+
+
+                <div class='col-5'>
+                    <h3 style="color: #C63A39; margin-top: 41px; margin-left: 220px">Cadastrar necessidade?</h3>
+                    <div style="margin-left: 218px; margin-top: -48px"> <button id="botaoAdicionar" class="botaoCadastro" >Adicionar</button>
+
+                    </div>
+                    <div id="map" class="mapa">
+                    </div>
+
+                    <script>
+                        // Initialize and add the map
+                        function initMap() {
+                            // The location of Uluru
+                            var uluru = {lat: -16.635907, lng: -49.235751};
+                            // The map, centered at Uluru
+                            var map = new google.maps.Map(
+                                    document.getElementById('map'), {zoom: 15, center: uluru});
+                            // The marker, positioned at Uluru
+                            var marker = new google.maps.Marker({position: uluru, map: map});
+                        }
+                    </script>
+
+                    <script async="async" defer="defer"
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeo3dDo7ej6RujRzfTL8JW8VZ6OK7PKpI&amp;callback=initMap">
+                    </script>
+                </div>
+            </div>
+            <div class="modal fade-modal" id="modalLoginForm" tabindex="-1" 
+                 role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+                            <form>
+                                <div class="form-row" >
+                                    <div class="form-group col">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">x</span>
+                                        </button>
+                                        <h5 class="frase">Seja bem vindo, entre com seus dados!</h5>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group2 col" >
+                                        <label class="label" for="inputSenha" >Senha</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-row ">
+                                    <div class="texto lembrete text-right"  style="width: 100%">
+                                        Esqueceu sua senha?
+                                    </div> 
+                                </div>
+
+
+                                <div class="form-row">
+                                    <div class="form-group3 col" >
+                                        <button type="submit" class="btnEnviar">Entrar</button>
+                                    </div>
+                                    <div class="form-group3 col" >
+                                        <button type="submit" class="btnCancelar">Cancelar</button>
+                                    </div>
+                                </div>    
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+                $("#botaoAdicionar").click(function () {
+                    $("#modalLoginForm").modal();
+                });
+            </script>
+        </ui:define>
+    </ui:composition>
+</html>

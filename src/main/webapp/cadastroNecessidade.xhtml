@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/DecomCity.xhtml">
+        <ui:define name="conteudo">
+            <div class='row'>
+                <div class='col-md-5'>
+                    <div>
+                        <h2 style="color: #C63A39; margin-left: 300px; margin-top: 42px">Diga-nos o que você precisa</h2>
+                        <form jsfc="h:form">
+                            <div>
+                                <label for="cep" class="identificador">Insira o CEP</label>
+                                <h:inputText id="cep" class="formulario"></h:inputText>
+                                <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="cep">Não sei meu CEP</a>
+                            </div>
+                            <label for="country" class="identificador">Selecione o usuario</label>
+                            <h:selectOneMenu id="us" class="selecionar" converter="#{converterEntity}"
+                                             value="#{necessidadePorBairroMB.necessidadePorBairro.usuario}">
+
+                                <f:selectItems  value="#{necessidadePorBairroMB.listaUsuario}"
+                                                var="usr" itemValue="#{usr}"
+                                                itemLabel="#{usr.nome}"/>
+                            </h:selectOneMenu>
+                                <label for="country" class="identificador">Selecione o Pais</label>
+                                <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}">
+
+                                    <f:selectItems  value="#{necessidadePorBairroMB.listaPais}"
+                                                    var="pai" itemValue="#{pai}"
+                                                    itemLabel="#{pai.nome}"/> 
+
+                                </h:selectOneMenu>
+                                <label for="country" class="identificador">Selecione o Estado</label>
+                                <h:selectOneMenu id="estado" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.estado}">
+
+                                    <f:selectItems  value="#{necessidadePorBairroMB.listaEstado}"
+                                                    var="est" itemValue="#{est}"
+                                                    itemLabel="#{est.sigla}"/> 
+
+                                </h:selectOneMenu>
+                                <label for="country" class="identificador">Selecione a cidade</label>
+                                <h:selectOneMenu id="cidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.cidade}">
+                                    <f:selectItems  value="#{necessidadePorBairroMB.listaCidade}"
+                                                    var="cid" itemValue="#{cid}"
+                                                    itemLabel="#{cid.nome}"/> 
+                                </h:selectOneMenu>
+                                <label for="country" class="identificador">Selecione o Bairro</label>
+                                <h:selectOneMenu id="bairro" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.bairro}">
+                                    <f:selectItems  value="#{necessidadePorBairroMB.listaBairro}"
+                                                    var="bar" itemValue="#{bar}"
+                                                    itemLabel="#{bar.nome}"/> 
+                                </h:selectOneMenu>
+                                <label for="country" class="identificador">Selecione a necessidade</label>
+                                <h:selectOneMenu id="necessidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.necessidade}">
+                                    <f:selectItems  value="#{necessidadePorBairroMB.listaNecessidades}"
+                                                    var="nes" itemValue="#{nes}"
+                                                    itemLabel="#{nes.tipos}"/> 
+                                </h:selectOneMenu>
+                                <div class="form-group">
+                                    <label style="margin-left: 300px; width: 100%">Observações</label>
+                                    <h:inputTextarea class="observações" id="observação" rows="2" value="#{necessidadePorBairroMB.necessidadePorBairro.observacao}"></h:inputTextarea>
+                                </div>
+                                <div>
+                                    <h:commandButton class="enviar" action="#{necessidadePorBairroMB.salvarNecessidadePorBairro()}" style="margin-top: -15px" >+ Adicionar</h:commandButton>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+                <div class='col-md-5'>
+                    <script>
+                        // Initialize and add the map
+                        function initMap() {
+                            // The location of Uluru
+                            var uluru = {lat: -16.635907, lng: -49.235751};
+                            // The map, centered at Uluru
+                            var map = new google.maps.Map(
+                                    document.getElementById('map'), {zoom: 15, center: uluru});
+                            // The marker, positioned at Uluru
+                            var marker = new google.maps.Marker({position: uluru, map: map});
+                        }
+                    </script>
+                    <!--Load the API from the specified URL
+                    * The async attribute allows the browser to render the page while the API loads
+                    * The key parameter will contain your own API key (which is not needed for this tutorial)
+                    * The callback parameter executes the initMap() function
+                    -->
+                    <script async="async" defer="defer"
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeo3dDo7ej6RujRzfTL8JW8VZ6OK7PKpI&amp;callback=initMap">
+                    </script>
+
+                    <div id="map" class="mapa3"/>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

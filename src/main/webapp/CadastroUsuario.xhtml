@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html class="html" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Cadastro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="Cadastro.css"/>
+    </head>
+    <body class = "corpo">
+        <h:form class="formulario">
+            <div class="form-row col-md-9" >
+                <div class="form-group col">
+                    <h5 class="frase">Faça seu cadastro. Ou Clique aqui para entrar.</h5>
+                </div>
+            </div>
+            <div class="form-row col-md-9">
+                <div class="form-group1 col">
+                    <label class="label" for="inputState" >Tipo de usuário</label>
+                    <h:selectOneMenu id="tipo" class="form-control" value="#{usuarioMB.usuario.tipo}">
+                        <f:selectItem itemValue="Usuário comum" itemLabel="Usuário comum"/>
+                        <f:selectItem itemValue="Empreendedor" itemLabel="Empreendedor"/>        
+                    </h:selectOneMenu>
+                    
+                </div>
+            </div>
+            <div class="form-row col-md-9">
+                <div class="form-group2 col" >
+                    <label class="label" for="inputNome">Nome</label>
+                    <h:inputText  class="form-control" id="nome" value="#{usuarioMB.usuario.nome}"></h:inputText>
+                </div>
+                <div class="form-group2 col" >
+                    <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                    <h:inputText  class="form-control" id="cpfCnpj" value="#{usuarioMB.usuario.cpfCnpj}"></h:inputText>
+                </div>
+
+            </div>
+            <div class="form-row col-md-9">
+                <div class="form-group2 col">
+                    <label class="label" for="inputDataNascimento">Data de nascimento</label>
+                    <h:inputText class="form-control" id="dataNasc" value="#{usuarioMB.usuario.dataNasc}"></h:inputText>
+                </div>
+                <div class="form-group2 col" >
+                    <label class="label" for="inputSenha" >Senha</label>
+                    <h:inputSecret class="form-control" id="senha" value="#{usuarioMB.usuario.senha}"></h:inputSecret>
+                </div>
+            </div>
+            <div class="form-row col-md-9">
+                <div class="form-group2 col">
+                    <label class="label" for="inputEmail">E-mail</label>
+                    <h:inputText class="form-control" id="Email" value="#{usuarioMB.usuario.email}"></h:inputText>
+                </div>
+
+
+            </div>
+            
+            <div class="form-row col-md-9">
+                <div class="form-group3 col" >
+                    <button type="submit" class="btnCancelar">Cancelar</button>
+                     
+                </div>
+                <div class="form-group3 col" >
+                     <h:commandButton type="submit" class="btnEnviar" action="#{usuarioMB.salvarUsuario()}">Enviar</h:commandButton>
+                </div>
+                
+                
+               
+            </div>    
+        </h:form>
+    </body>
+</html>
