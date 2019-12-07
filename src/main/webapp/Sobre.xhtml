@@ -1,59 +1,94 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:composition template="/DecomCity.xhtml">
-
         <ui:define name="titulo">Principal</ui:define>
 
         <ui:define name="conteudo">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-
-
-            <h1 style="margin-top: 30px;margin-left: 740px">DeComCity</h1>          
+            <h1 style="margin-top: 30px;margin-left: 740px">Sobre o Projeto</h1>
             <p style="margin-top: 30px">
-                Este site visa melhorar o desenvolvimento comercial de cada estado, cidade e bairro. Aqui você vota na necessidade que você
-                como morador ou visitante de algum local, visualiza que está faltando algum comércio especifico. Outras pessoas que
-                compartilham com a sua opinião, também votam na mesma necessidade.
-                Assim, empresários que possuem comércios visualizam essas votações, e podem investir neste local, com a necessidade votada.
+                Esse projeto de desenvolvimento comercial foi elaborado a partir do projeto integrador da faculdade senac,
+                pensando no desenvolvimento, tanto econômico quanto em estrutura local. Ao observamos a necessidade
+                de nossos bairros, queríamos aumentar o alcance para cidades e estados. 
+
+                Um projeto sem financiamento, pensado na população.
             </p>
-
-            <div> 
-                <div style="margin-top: 420px">
-                    <a href="/cadastroNecessidade.xhtml" class="btnprincipal" style="color: white">Adicionar Necessidade!</a>
-                    <a href="/cadastroNecessidade.xhtml" class="btnprincipal" style="color: white; margin-left: 235px">Votar Necessidade!</a>
-                    <a href="/cadastroNecessidade.xhtml" class="btnprincipal" style="color: white; margin-left: 225px">Ver votos!</a>
-                </div>
-            </div>
-
-            <div class="imagem-fundo"></div>
+            <div class="Fundo"></div>
             <div class="row">
                 <div class="col-10">
                     <div class="row">
                         <div class="col-md-4">
-
+                            
+                            <div class="fotos"></div>
+                            
                         </div>
 
+                        <div class="col-md-4">
+                            <div class="fotos"></div>
+                        </div>
+                        <div class="col-md-4" style="margin-left:-8px">
+                            <div class="fotos"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-md-3" style="margin-left: 50px">
+                            <a href="https://pt-br.facebook.com/brunocesar.lopesfonseca" target="_blank"> 
+                                <img src="facebook.png" class="float-right ml-2px"
+                                     style="width:30px; margin-top: 5px"/>
+                            </a>
+                            <a href="https://www.instagram.com/brunocesar_lf/" target="_blank">
+                                <img src="instagram.png" class="float-right" 
+                                     style="width:30px; margin-top: 5px; margin-right: 8px"/>
+                            </a>
+                            <a href="mailto:bcnetbr@gmail.com?subject=DecomCity%20again">
+                                <img src="mail.png" class="float-right" 
+                                     style="width:30px; margin-top: 5px; margin-right: 8px "/>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style=" margin-left: 135px">
+                            <a href="#"> 
+                                <img src="facebook.png" class="float-right ml-2px"
+                                     style="width:30px; margin-top: 5px"/>
+                            </a>
+                            <a href="https://www.instagram.com/feliperobueno/" target="_blank">
+                                <img src="instagram.png" class="float-right" 
+                                     style="width:30px; margin-top: 5px; margin-right: 8px"/>
+                            </a>
+                            <a href="mailto:feliperodriguesbueno@hotmail.com?subject=DecomCity%20again">
+                                <img src="mail.png" class="float-right" 
+                                     style="width:30px; margin-top: 5px; margin-right: 8px "/>
+                            </a>
+                        </div>
+                        <div class="col-md-2" style="margin-left: 265px">
+                            <a href="#"> 
+                                <img src="facebook.png" class="float-right ml-2px"
+                                     style="width:30px; margin-top: 5px"/>
+                            </a>
+                            <a href="https://www.instagram.com/jnp70/" target="_blank">
+                                <img src="instagram.png" class="float-right" 
+                                     style="width:30px; margin-top: 5px; margin-right: 8px"/>
+                            </a>
+                            <a href="mailto:joaonettopinheiro2@gmail.com?subject=DecomCity%20again" target="_blank">
+                                <img src="mail.png" class="float-right" 
+                                     style="width:30px; margin-top: 5px; margin-right: 8px "/>
+                            </a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
 
-            <script>
-                $('body')
-                        .css("background-image", "url(/imagemPrincipal.png)")
-                        .css("background-repeat", "no-repeat")
-                        .css("background-size", "cover")
 
-                $('.enviar').css("border-radius", "20px")
-                        .css("font-family", "Century Gothic")
-                        .css("background-color", "#C63A39")
-                        .css("text-align", "center")
-                        .css("width", "250px")
-                        .css("height", "58px")
-                        .css(" margin-left", "250px")
-                        .css("margin-top", "220px")
-                        .css("margin-right", "-70px")
-            </script>
         </ui:define>
     </ui:composition>
+
+
 </html>
