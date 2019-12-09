@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class VotacaoMB {
 
-    @RequestMapping
+    @RequestMapping(value = "/votar")
     public void votar(Integer id) {
         Usuario usuario = null;
         NecessidadePorBairro necessidadePorBairro = null;
