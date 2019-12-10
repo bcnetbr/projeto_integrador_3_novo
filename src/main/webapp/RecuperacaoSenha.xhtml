@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/DecomCity.xhtml">
+        <ui:define name="titulo">Recuperação de senha</ui:define>
+        <ui:define name="conteudo">
+
+            <link rel="stylesheet" href="recSenha.css"/>
+
+            <div class="mestre">
+                <div class="form-row">
+                    <div class="colEsquerda"></div>
+                    <div class="form-group col">
+                        <h5 class="frase">Recuperação de senha</h5>
+                    </div>
+                    <div class="colDireita"></div>
+                </div>
+                <div class="form-row">
+                    <div class="colEsquerda"></div>
+                    <div class="form-group2 col">
+                        <label class="label" for="inputEmail">E-mail</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail"/>
+                    </div>
+                    <div class="colDireita"></div>
+
+                </div>
+                <div class="form-row">
+                    <div class="colEsquerda"></div>
+                    <div class="form-group3 col" >
+                        <button type="submit" class="btnEnviar">Enviar</button>
+
+                    </div>
+                    <div class="form-group3 col" >
+                        <button type="submit" class="btnCancelar">Cancelar</button>
+                    </div>
+
+                    <div class="colDireita"></div>
+
+                </div>    
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>
