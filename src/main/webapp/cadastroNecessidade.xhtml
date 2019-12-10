@@ -28,47 +28,52 @@ and open the template in the editor.
                                                 var="usr" itemValue="#{usr}"
                                                 itemLabel="#{usr.nome}"/>
                             </h:selectOneMenu>
-                                <label for="country" class="identificador">Selecione o Pais</label>
-                                <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}">
+                            
+                            <label for="country" class="identificador">Selecione o Pais</label>
+                            <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}">
 
-                                    <f:selectItems  value="#{necessidadePorBairroMB.listaPais}"
-                                                    var="pai" itemValue="#{pai}"
-                                                    itemLabel="#{pai.nome}"/> 
+                                <f:selectItems  value="#{necessidadePorBairroMB.listaPais}"
+                                                var="pai" itemValue="#{pai}"
+                                                itemLabel="#{pai.nome}"/> 
 
-                                </h:selectOneMenu>
-                                <label for="country" class="identificador">Selecione o Estado</label>
-                                <h:selectOneMenu id="estado" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.estado}">
+                            </h:selectOneMenu>
+                            
+                            <label for="country" class="identificador">Selecione o Estado</label>
+                            <h:selectOneMenu id="estado" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.estado}">
 
-                                    <f:selectItems  value="#{necessidadePorBairroMB.listaEstado}"
-                                                    var="est" itemValue="#{est}"
-                                                    itemLabel="#{est.sigla}"/> 
+                                <f:selectItems  value="#{necessidadePorBairroMB.listaEstado}"
+                                                var="est" itemValue="#{est}"
+                                                itemLabel="#{est.sigla}"/> 
 
-                                </h:selectOneMenu>
-                                <label for="country" class="identificador">Selecione a cidade</label>
-                                <h:selectOneMenu id="cidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.cidade}">
-                                    <f:selectItems  value="#{necessidadePorBairroMB.listaCidade}"
-                                                    var="cid" itemValue="#{cid}"
-                                                    itemLabel="#{cid.nome}"/> 
-                                </h:selectOneMenu>
-                                <label for="country" class="identificador">Selecione o Bairro</label>
-                                <h:selectOneMenu id="bairro" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.bairro}">
-                                    <f:selectItems  value="#{necessidadePorBairroMB.listaBairro}"
-                                                    var="bar" itemValue="#{bar}"
-                                                    itemLabel="#{bar.nome}"/> 
-                                </h:selectOneMenu>
-                                <label for="country" class="identificador">Selecione a necessidade</label>
-                                <h:selectOneMenu id="necessidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.necessidade}">
-                                    <f:selectItems  value="#{necessidadePorBairroMB.listaNecessidades}"
-                                                    var="nes" itemValue="#{nes}"
-                                                    itemLabel="#{nes.tipos}"/> 
-                                </h:selectOneMenu>
-                                <div class="form-group">
-                                    <label style="margin-left: 300px; width: 100%">Observações</label>
-                                    <h:inputTextarea class="observações" id="observação" rows="2" value="#{necessidadePorBairroMB.necessidadePorBairro.observacao}"></h:inputTextarea>
-                                </div>
-                                <div>
-                                    <h:commandButton class="enviar" action="#{necessidadePorBairroMB.salvarNecessidadePorBairro()}" style="margin-top: -15px" value="+ Adicionar" ></h:commandButton>
-                                </div>
+                            </h:selectOneMenu>
+                            
+                            <label for="country" class="identificador">Selecione a cidade</label>
+                            <h:selectOneMenu id="cidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.cidade}">
+                                <f:selectItems  value="#{necessidadePorBairroMB.listaCidade}"
+                                                var="cid" itemValue="#{cid}"
+                                                itemLabel="#{cid.nome}"/> 
+                            </h:selectOneMenu>
+                            
+                            <label for="country" class="identificador">Selecione o Bairro</label>
+                            <h:selectOneMenu id="bairro" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.bairro}">
+                                <f:selectItems  value="#{necessidadePorBairroMB.listaBairro}"
+                                                var="bar" itemValue="#{bar}"
+                                                itemLabel="#{bar.nome}"/> 
+                            </h:selectOneMenu>
+                            
+                            <label for="country" class="identificador">Selecione a necessidade</label>
+                            <h:selectOneMenu id="necessidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.necessidade}">
+                                <f:selectItems  value="#{necessidadePorBairroMB.listaNecessidades}"
+                                                var="nes" itemValue="#{nes}"
+                                                itemLabel="#{nes.tipos}"/> 
+                            </h:selectOneMenu>
+                            <div class="form-group">
+                                <label style="margin-left: 300px; width: 100%">Observações</label>
+                                <h:inputTextarea class="observações" id="observação" rows="2" value="#{necessidadePorBairroMB.necessidadePorBairro.observacao}"></h:inputTextarea>
+                            </div>
+                            <div>
+                                <h:commandButton class="enviar" action="#{necessidadePorBairroMB.salvarNecessidadePorBairro()}" style="margin-top: -15px" value="+ Adicionar" ></h:commandButton>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -76,13 +81,13 @@ and open the template in the editor.
                     <script>
                         // Initialize and add the map
                         function initMap() {
-                            // The location of Uluru
-                            var uluru = {lat: -16.635907, lng: -49.235751};
-                            // The map, centered at Uluru
-                            var map = new google.maps.Map(
-                                    document.getElementById('map'), {zoom: 15, center: uluru});
-                            // The marker, positioned at Uluru
-                            var marker = new google.maps.Marker({position: uluru, map: map});
+                        // The location of Uluru
+                        var uluru = {lat: -16.635907, lng: -49.235751};
+                        // The map, centered at Uluru
+                        var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 15, center: uluru});
+                        // The marker, positioned at Uluru
+                        var marker = new google.maps.Marker({position: uluru, map: map});
                         }
                     </script>
                     <!--Load the API from the specified URL

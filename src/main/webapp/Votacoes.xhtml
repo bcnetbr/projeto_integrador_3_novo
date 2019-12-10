@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/DecomCity.xhtml">
         <ui:define name="conteudo">
             <link rel="stylesheet" href="Login.css"/>
@@ -14,39 +15,49 @@ and open the template in the editor.
                 <div class='col-4'>
                     <h1 style="color: #C63A39; margin-left: 48%; margin-top: 30px">Filtro</h1>
 
-                    <form>
-                        <label for="country" class="identificador">Selecione o País</label>
-                        <select class="selecionar">
-                            <option value="">Brasil</option>
-                            <option value="">Estados Unidos</option>
-                            <option value="">Russia</option>
-                        </select>
+                    <form jsfc="h:form">
+                        <label for="country" class="identificador">Selecione o Pais</label>
+                        <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}">
+
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaPais}"
+                                            var="pai" itemValue="#{pai}"
+                                            itemLabel="#{pai.nome}"/> 
+
+                        </h:selectOneMenu>
+
                         <label for="country" class="identificador">Selecione o Estado</label>
-                        <select class="selecionar">
-                            <option value="">Goiania</option>
-                            <option value="">São Paulo</option>
-                            <option value="">Rio de Janeiro</option>
-                        </select>
-                        <label for="country" class="identificador">Selecione a Cidade</label>
-                        <select class="selecionar">
-                            <option value="">Goiania</option>
-                            <option value="">São Paulo</option>
-                            <option value="">Rio de Janeiro</option>
-                        </select>
+                        <h:selectOneMenu id="estado" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.estado}">
+
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaEstado}"
+                                            var="est" itemValue="#{est}"
+                                            itemLabel="#{est.sigla}"/> 
+
+                        </h:selectOneMenu>
+
+                        <label for="country" class="identificador">Selecione a cidade</label>
+                        <h:selectOneMenu id="cidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.cidade}">
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaCidade}"
+                                            var="cid" itemValue="#{cid}"
+                                            itemLabel="#{cid.nome}"/> 
+                        </h:selectOneMenu>
+
                         <label for="country" class="identificador">Selecione o Bairro</label>
-                        <select class="selecionar">
-                            <option value="">Goiania</option>
-                            <option value="">São Paulo</option>
-                            <option value="">Rio de Janeiro</option>
-                        </select>
+                        <h:selectOneMenu id="bairro" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.bairro}">
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaBairro}"
+                                            var="bar" itemValue="#{bar}"
+                                            itemLabel="#{bar.nome}"/> 
+                        </h:selectOneMenu>
+
                         <label for="country" class="identificador">Selecione a necessidade</label>
-                        <select class="selecionar">
-                            <option value="">Supermecado</option>
-                            <option value="">Farmacia</option>
-                            <option value="">Panificadora</option>
-                        </select>
+                        <h:selectOneMenu id="necessidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.necessidade}">
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaNecessidades}"
+                                            var="nes" itemValue="#{nes}"
+                                            itemLabel="#{nes.tipos}"/> 
+                        </h:selectOneMenu>
                         <div>
-                            <button class="enviar" style="margin-top: 0;">Buscar</button>
+                            <h:commandButton class="enviar" action="#{necessidadePorBairroMB.buscarResumoVotos()}" 
+                                             style="margin-top: 0" value="Buscar" >
+                            </h:commandButton>
                         </div>
                     </form>
                 </div>
@@ -54,6 +65,14 @@ and open the template in the editor.
                 <div class='col-1'>
                     <h1 style='color: #C63A39; margin-top: 30px '>Resultados</h1>
                     <p/>
+
+                    <ui:repeat value="#{necessidadePorBairroMB.resultadoResumoVotacao}"
+                               var="linha">
+                        <div class="resultado">
+                            #{linha[0]} | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | #{linha[1]} votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                        </div>
+                    </ui:repeat>
+
                     <div class="resultado">
                         Resultado 1 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
                     </div>
@@ -84,17 +103,17 @@ and open the template in the editor.
                 <script type="text/javascript">
 
                     function toggle(el) {
-                        if (el.className != "pause")
-                        {
-                            el.src = 'off.png';
-                            el.className = "pause";
-                        } else if (el.className == "pause")
-                        {
-                            el.src = 'on.png';
-                            el.className = "play";
-                        }
+                    if (el.className != "pause")
+                    {
+                    el.src = 'off.png';
+                    el.className = "pause";
+                    } else if (el.className == "pause")
+                    {
+                    el.src = 'on.png';
+                    el.className = "play";
+                    }
 
-                        return false;
+                    return false;
                     }
                 </script>
 
@@ -110,13 +129,13 @@ and open the template in the editor.
                     <script>
                         // Initialize and add the map
                         function initMap() {
-                            // The location of Uluru
-                            var uluru = {lat: -16.635907, lng: -49.235751};
-                            // The map, centered at Uluru
-                            var map = new google.maps.Map(
-                                    document.getElementById('map'), {zoom: 15, center: uluru});
-                            // The marker, positioned at Uluru
-                            var marker = new google.maps.Marker({position: uluru, map: map});
+                        // The location of Uluru
+                        var uluru = {lat: -16.635907, lng: -49.235751};
+                        // The map, centered at Uluru
+                        var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 15, center: uluru});
+                        // The marker, positioned at Uluru
+                        var marker = new google.maps.Marker({position: uluru, map: map});
                         }
                     </script>
 
@@ -182,7 +201,7 @@ and open the template in the editor.
             <script>
 
                 $("#botaoAdicionar").click(function () {
-                    $("#modalLoginForm").modal();
+                $("#modalLoginForm").modal();
                 });
             </script>
         </ui:define>

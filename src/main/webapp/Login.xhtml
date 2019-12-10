@@ -16,7 +16,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="Login.css"/>
     </head>
     <body class = "corpo">
-        <form class="formulario">
+        <form class="formulario" action="/senha">
             <div class="form-row col-md-9" >
                 <div class="form-group col">
                     <h5 class="frase">Seja bem vindo novamente. Efetue seu cadastro</h5>
@@ -26,7 +26,7 @@ and open the template in the editor.
             <div class="form-row col-md-9">
                 <div class="form-group2 col" >
                     <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
+                    <input name="username" type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
                 </div>
 
             </div>
@@ -34,7 +34,7 @@ and open the template in the editor.
                 
                 <div class="form-group2 col" >
                     <label class="label" for="inputSenha" >Senha</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
+                    <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
                 </div>
                 
             </div>

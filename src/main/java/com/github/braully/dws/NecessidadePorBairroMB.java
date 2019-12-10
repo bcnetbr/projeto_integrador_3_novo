@@ -5,10 +5,12 @@
  */
 package com.github.braully.dws;
 
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -42,6 +44,9 @@ public class NecessidadePorBairroMB {
     @Autowired
     UsuarioDAO usuarioDao;
 
+    @Autowired
+    DataSource dataSource;
+
     NecessidadePorBairro necessidadePorBairro = new NecessidadePorBairro();
 
     public NecessidadePorBairro getNecessidadePorBairro() {
@@ -55,6 +60,29 @@ public class NecessidadePorBairroMB {
         necessidadePorBairro = new NecessidadePorBairro();
 
     }
+
+    List<String[]> resultadoResumoVotacao = new ArrayList<>();
+
+    public List<String[]> getResultadoResumoVotacao() {
+        return resultadoResumoVotacao;
+    }
+
+    public void buscarResumoVotos() {
+        try {
+            resultadoResumoVotacao.clear();
+//            Statement statement = dataSource.getConnection().createStatement();
+//            statement.execute("SELECT count(id) as num_votos, id_bairro, id_necessidade, id_usuario, "
+//                    + "id_pais, id_estado, id_cidade, observacao\n"
+//                    + "FROM public.necessidade_por_bairro GROUP BY id_pais, id_estado, id_necessidade");
+
+            resultadoResumoVotacao.add(new String[]{"Farmacia", "100"});
+            resultadoResumoVotacao.add(new String[]{"Banco", "120"});
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     List<Usuario> listaUsuario;
 
     public List<Usuario> getListaUsuario() {
