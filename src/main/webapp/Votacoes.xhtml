@@ -48,12 +48,7 @@ and open the template in the editor.
                                             itemLabel="#{bar.nome}"/> 
                         </h:selectOneMenu>
 
-                        <label for="country" class="identificador">Selecione a necessidade</label>
-                        <h:selectOneMenu id="necessidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.necessidade}">
-                            <f:selectItems  value="#{necessidadePorBairroMB.listaNecessidades}"
-                                            var="nes" itemValue="#{nes}"
-                                            itemLabel="#{nes.tipos}"/> 
-                        </h:selectOneMenu>
+                        
                         <div>
                             <h:commandButton class="enviar" action="#{necessidadePorBairroMB.buscarResumoVotos()}" 
                                              style="margin-top: 0" value="Buscar" >
@@ -73,30 +68,7 @@ and open the template in the editor.
                         </div>
                     </ui:repeat>
 
-                    <div class="resultado">
-                        Resultado 1 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 2 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 3 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 4 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 5 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 6 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 7 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
-                    <div class="resultado">
-                        Resultado 8 | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | votos <a href="#"><img src="compartilhar.png" class="play"/></a>
-                    </div>
+                    
 
 
                 </div>

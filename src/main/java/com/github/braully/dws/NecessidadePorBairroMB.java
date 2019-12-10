@@ -5,6 +5,7 @@
  */
 package com.github.braully.dws;
 
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,14 +70,29 @@ public class NecessidadePorBairroMB {
 
     public void buscarResumoVotos() {
         try {
+            
             resultadoResumoVotacao.clear();
-//            Statement statement = dataSource.getConnection().createStatement();
-//            statement.execute("SELECT count(id) as num_votos, id_bairro, id_necessidade, id_usuario, "
-//                    + "id_pais, id_estado, id_cidade, observacao\n"
-//                    + "FROM public.necessidade_por_bairro GROUP BY id_pais, id_estado, id_necessidade");
+            Statement statement = dataSource.getConnection().createStatement();
+            ResultSet rs = null;
+            //statement.execute("SELECT count(id) as num_votos, id_bairro, id_necessidade, id_usuario, "
+            //        + "id_pais, id_estado, id_cidade, observacao\n"
+            //        + "FROM public.necessidade_por_bairro GROUP BY id_pais, id_estado, id_necessidade");
+           statement.execute("select count(necessidade_por_bairro.id) as votos, necessidades.tipos as necessidade from necessidade_por_bairro"  
+           +" inner join necessidades on(necessidades.id = necessidade_por_bairro.id_necessidade)" 
+           +" where id_pais="+necessidadePorBairro.pais.getId()+ "and id_estado="+necessidadePorBairro.estado.getId() + "and id_cidade=" + necessidadePorBairro.cidade.getId() +"and id_bairro=" + necessidadePorBairro.bairro.getId()
+           +" group by id_pais,id_estado,id_cidade,id_bairro,necessidades.tipos order by votos Desc;");
+           
+           rs=statement.getResultSet();
+           while(rs.next())
+           {
+               String nes = rs.getString("necessidade");
+               String voto = String.valueOf(rs.getInt("votos"));
+               resultadoResumoVotacao.add(new String[]{nes, voto});
+               System.out.println(nes+","+voto);
+           }
 
-            resultadoResumoVotacao.add(new String[]{"Farmacia", "100"});
-            resultadoResumoVotacao.add(new String[]{"Banco", "120"});
+            //resultadoResumoVotacao.add(new String[]{"Farmacia", "100"});
+            //resultadoResumoVotacao.add(new String[]{"Banco", "120"});
 
         } catch (Exception e) {
             e.printStackTrace();

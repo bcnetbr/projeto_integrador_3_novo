@@ -26,8 +26,8 @@ public class NecessidadePorBairro {
     @Id
     @GeneratedValue
     private long id;
-    @Basic
-    int votos;
+    //@Basic
+    //int votos;
     
     @ManyToOne
     @JoinColumn(name="id_pais")
@@ -64,13 +64,13 @@ public class NecessidadePorBairro {
     @Basic
     String observacao;
        
-    public int getVotos() {
-        return votos;
-    }
+   // public int getVotos() {
+   //     return votos;
+   // }
    
-    public void setVotos(int votos) {
-        this.votos = votos;
-    }
+   // public void setVotos(int votos) {
+   //     this.votos = votos;
+   // }
     
      public String getObservacao() {
         return observacao;
