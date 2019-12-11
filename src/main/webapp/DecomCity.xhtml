@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html    
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
     <head>
         <title><ui:insert name="Titulo"></ui:insert></title>
         <meta charset="UTF-8"/>
@@ -117,7 +118,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <form >
+                        <h:form>
                             <div class="form-row" >
                                 <div class="form-group col">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -129,51 +130,52 @@
                             <div class="form-row">
                                 <div class="form-group1 col">
                                     <label class="label" for="inputState" >Tipo de usuário</label>
-                                    <select id="inputState" class="form-control" style="border-radius: 20px; border-color: #c63a39" >
-                                        <option selected="selected" class="select">Choose...</option>
-                                        <option id="Usuário comum" class="select">Usuário comum</option>
-                                        <option id="Usuário empreendedor" class="select">Empreendedor</option>
-                                    </select>
+                                    <h:selectOneMenu id="tipo" class="form-control" value="#{usuarioMB.usuario.tipo}" style="border-radius: 20px; border-color: #c63a39">
+                                        <f:selectItem itemValue="Usuário comum" itemLabel="Usuário comum"/>
+                                        <f:selectItem itemValue="Empreendedor" itemLabel="Empreendedor"/>        
+                                    </h:selectOneMenu>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group2 col" >
                                     <label class="label" for="inputNome">Nome</label>
-                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome" style="border-radius: 20px; border-color: #c63a39"/>
+                                     <h:inputText  class="form-control" id="nome" value="#{usuarioMB.usuario.nome}" style="border-radius: 20px; border-color: #c63a39"></h:inputText>
                                 </div>
                                 <div class="form-group2 col" >
                                     <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ" style="border-radius: 20px; border-color: #c63a39"/>
+                                    <h:inputText  class="form-control" id="cpfCnpj" value="#{usuarioMB.usuario.cpfCnpj}" style="border-radius: 20px; border-color: #c63a39"></h:inputText>
                                 </div>
 
                             </div>
                             <div class="form-row">
                                 <div class="form-group2 col">
                                     <label class="label" for="inputDataNascimento">Data de nascimento</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Data de nascimento" style="border-radius: 20px; border-color: #c63a39"/>
+                                    <h:inputText class="form-control" id="dataNasc" value="#{usuarioMB.usuario.dataNasc}" style="border-radius: 20px; border-color: #c63a39">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:inputText>
                                 </div>
                                 <div class="form-group2 col" >
                                     <label class="label" for="inputSenha" >Senha</label>
-                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" style="border-radius: 20px; border-color: #c63a39"/>
+                                    <h:inputSecret class="form-control" id="senha" value="#{usuarioMB.usuario.senha}" style="border-radius: 20px; border-color: #c63a39"></h:inputSecret>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group2 col">
                                     <label class="label" for="inputEmail">E-mail</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" style="border-radius: 20px; border-color: #c63a39"/>
+                                    <h:inputText class="form-control" id="Email" value="#{usuarioMB.usuario.email}" style="border-radius: 20px; border-color: #c63a39"></h:inputText>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group3 col" >
-                                    <button type="submit" class="btnEnviar">Enviar</button>
+                                    <button type="submit" class="btnCancelar">Cancelar</button>
                                 </div>
                                 <div class="form-group3 col" >
-                                    <button type="submit" class="btnCancelar">Cancelar</button>
+                                    <h:commandButton type="submit" class="btnEnviar" action="#{usuarioMB.salvarUsuario()}" value="Enviar"></h:commandButton>
                                 </div>
 
                             </div>    
-                        </form>
+                        </h:form>
                     </div>
                 </div>
             </div>

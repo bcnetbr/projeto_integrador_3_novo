@@ -72,27 +72,23 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("user")
-                .password(passwordEncoder().encode("user"))
-                .roles("USER").build();
+        UserDetails user = User.withUsername("Felipe")
+                .password(passwordEncoder().encode("123456"))
+                .roles("COMUM").build();
 
-        UserDetails admin = User.withUsername("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN").build();
+        UserDetails admin = User.withUsername("22222222222")
+                .password(passwordEncoder().encode("654321"))
+                .roles("EMPREENDEDOR").build();
         return new InMemoryUserDetailsManager(user, admin);
     }
-    @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(datasource())
-                .usersByUsernameQuery(
-                        "select login as username, senha as password, true as enabled from usuario where login=?")
-                .authoritiesByUsernameQuery(
-                        "select login as username, g.grupo as role "
-                        + "from grupo g"
-                        + " inner join usuario_grupos_usuario ug on ug.grupos_usuario_id = g.id"
-                        + " inner join usuario u on ug.usuario_id = u.id "
-                        + "where login=?");
-    }
+    //@Autowired
+   // public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+       // auth.jdbcAuthentication().dataSource(datasource())
+                //.usersByUsernameQuery(
+                //        "select nome,senha, enabled from usuarios where nome=?")
+                //.authoritiesByUsernameQuery(
+                //        "select nome, tipo from usuarios where nome=?");
+   // }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -102,9 +98,10 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 .antMatchers("**/*.css", "/*.css", "/*.png").permitAll()
                 //.antMatchers("/todas-solicitacoes").hasRole("ADMIN")
                 .antMatchers("/Sobre.xhtml").permitAll()
-                .antMatchers("/Votacoes.xhtml").permitAll()
+                .antMatchers("/Votacoes.xhtml").hasRole("COMUM")
+                .antMatchers("/Resultados.xhtml").hasRole("EMPREENDEDOR")
                 .antMatchers("/cadastroNecessidade.xhtml").permitAll()
-                
+                .antMatchers("/.xhtml").permitAll()
                 
                 .anyRequest().authenticated().and()
                 .formLogin().loginPage("/Login.xhtml").loginProcessingUrl("/senha")

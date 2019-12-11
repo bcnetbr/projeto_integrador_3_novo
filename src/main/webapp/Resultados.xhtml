@@ -6,85 +6,98 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/DecomCity.xhtml">
-        <ui:define name="titulo">Principal</ui:define>
-
         <ui:define name="conteudo">
+            <link rel="stylesheet" href="Login.css"/>
             <div class='row'>
-                <div class='col-md-5'>
-                    <!--<div>
-                        <canvas id="myChart" width="100" height="80"></canvas>
-                        <script>
-                            //http://www.chartjs.org/docs/#doughnut-pie-chart-introduction
+                <div class='col-4'>
+                    <h1 style="color: #C63A39; margin-left: 48%; margin-top: 30px">Filtro</h1>
 
-                            var data = [
-                            {
-                            value: 300,
-                            color:"#F7464A",
-                            highlight: "#FF5A5E",
-                            label: "Red"
-                            },
-                            {
-                            value: 50,
-                            color: "#46BFBD",
-                            highlight: "#5AD3D1",
-                            label: "Green"
-                            },
-                            {
-                            value: 100,
-                            color: "#FDB45C",
-                            highlight: "#FFC870",
-                            label: "Yellow"
-                            }
-                            ];
+                    <form jsfc="h:form">
+                        <label for="country" class="identificador">Selecione o Pais</label>
+                        <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}" disabled="">
 
-                            var ctx = document.getElementById("myChart").getContext("2d");
-                            new Chart(ctx).Pie(data);
-                            //new Chart(ctx).Doughnut(data);
-                        </script>
-                    </div>-->
-                    <div>
-                        <h2 style="color: #C63A39; margin-left: 300px; margin-top: 42px">Vamos encontrar os melhores empreendimentos para você</h2>
-                        <form>
-                            <div>
-                                <label for="cep" class="identificador">Insira o CEP</label>
-                                <input type="cep" class="formulario" placeholder="EX: 74000000"/>
-                                <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="cep">Não sei meu CEP</a>
-                            </div>
-                            <label for="country" class="identificador">Selecione o Estado</label>
-                            <select class="selecionar">
-                                <option value="">Goias</option>
-                                <option value="">São Paulo</option>
-                                <option value="">Rio de Janeiro</option>
-                            </select>
-                            <label for="country" class="identificador">Selecione a cidade</label>
-                            <select class="selecionar">
-                                <option value="">Goiania</option>
-                                <option value="">São Paulo</option>
-                                <option value="">Rio de Janeiro</option>
-                            </select>
-                            <label for="country" class="identificador">Selecione o Bairro</label>
-                            <select class="selecionar">
-                                <option value="">Goiania</option>
-                                <option value="">São Paulo</option>
-                                <option value="">Rio de Janeiro</option>
-                            </select>
-                            <label for="country" class="identificador">Selecione a necessidade</label>
-                            <select class="selecionar">
-                                <option value="">Supermecado</option>
-                                <option value="">Farmacia</option>
-                                <option value="">Panificadora</option>
-                            </select>
-                            <div>
-                                <button class="enviar" style="margin-top:0 ">Buscar</button>
-                            </div>
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaPais}"
+                                            var="pai" itemValue="#{pai}"
+                                            itemLabel="#{pai.nome}"/> 
 
-                        </form>
-                    </div>
+                        </h:selectOneMenu>
+
+                        <label for="country" class="identificador">Selecione o Estado</label>
+                        <h:selectOneMenu id="estado" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.estado}">
+
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaEstado}"
+                                            var="est" itemValue="#{est}"
+                                            itemLabel="#{est.sigla}"/> 
+
+                        </h:selectOneMenu>
+
+                        <label for="country" class="identificador">Selecione a cidade</label>
+                        <h:selectOneMenu id="cidade" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.cidade}">
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaCidade}"
+                                            var="cid" itemValue="#{cid}"
+                                            itemLabel="#{cid.nome}"/> 
+                        </h:selectOneMenu>
+
+                        <label for="country" class="identificador">Selecione o Bairro</label>
+                        <h:selectOneMenu id="bairro" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.bairro}">
+                            <f:selectItems  value="#{necessidadePorBairroMB.listaBairro}"
+                                            var="bar" itemValue="#{bar}"
+                                            itemLabel="#{bar.nome}"/> 
+                        </h:selectOneMenu>
+
+                        
+                        <div>
+                            <h:commandButton class="enviar" action="#{necessidadePorBairroMB.buscarResumoVotos()}" 
+                                             style="margin-top: 0" value="Buscar" >
+                            </h:commandButton>
+                        </div>
+                    </form>
                 </div>
 
-                <div class='col-md-5'>
+                <div class='col-1'>
+                    <h1 style='color: #C63A39; margin-top: 30px '>Resultados</h1>
+                    <p/>
+
+                    <ui:repeat value="#{necessidadePorBairroMB.resultadoResumoVotacao}"
+                               var="linha">
+                        <div class="resultado">
+                            #{linha[0]} | #{linha[1]} votos 
+                        </div>
+                    </ui:repeat>
+
+                    
+
+
+                </div>
+                <script type="text/javascript">
+
+                    function toggle(el) {
+                    if (el.className != "pause")
+                    {
+                    el.src = 'off.png';
+                    el.className = "pause";
+                    } else if (el.className == "pause")
+                    {
+                    el.src = 'on.png';
+                    el.className = "play";
+                    }
+
+                    return false;
+                    }
+                </script>
+
+
+                <div class='col-5'>
+                    <h3 style="color: #C63A39; margin-top: 41px; margin-left: 220px">Cadastrar necessidade?</h3>
+                    <div style="margin-left: 218px; margin-top: -48px"> <button id="botaoAdicionar" class="botaoCadastro" >Adicionar</button>
+
+                    </div>
+                    <div id="map" class="mapa">
+                    </div>
+
                     <script>
                         // Initialize and add the map
                         function initMap() {
@@ -97,24 +110,18 @@ and open the template in the editor.
                         var marker = new google.maps.Marker({position: uluru, map: map});
                         }
                     </script>
-                    <!--Load the API from the specified URL
-                    * The async attribute allows the browser to render the page while the API loads
-                    * The key parameter will contain your own API key (which is not needed for this tutorial)
-                    * The callback parameter executes the initMap() function
-                    -->
+
                     <script async="async" defer="defer"
                             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeo3dDo7ej6RujRzfTL8JW8VZ6OK7PKpI&amp;callback=initMap">
                     </script>
-
-                    <div id="map" class="mapa2"/>
-                    <label class="caixa">Mostrar imoveis disponiveis 
-                        <input type="checkbox"/>
-                        <span class="checkmark"></span>
-                    </label>
                 </div>
             </div>
+            <script>
+
+                $("#botaoAdicionar").click(function () {
+                $("#modalLoginForm").modal();
+                });
+            </script>
         </ui:define>
     </ui:composition>
-
-
 </html>

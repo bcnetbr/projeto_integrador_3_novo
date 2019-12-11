@@ -17,7 +17,7 @@ and open the template in the editor.
 
                     <form jsfc="h:form">
                         <label for="country" class="identificador">Selecione o Pais</label>
-                        <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}">
+                        <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}" disabled="">
 
                             <f:selectItems  value="#{necessidadePorBairroMB.listaPais}"
                                             var="pai" itemValue="#{pai}"
@@ -64,7 +64,7 @@ and open the template in the editor.
                     <ui:repeat value="#{necessidadePorBairroMB.resultadoResumoVotacao}"
                                var="linha">
                         <div class="resultado">
-                            #{linha[0]} | <input type="image" src="on.png" class="play" onclick="toggle(this);"/> | #{linha[1]} votos <a href="#"><img src="compartilhar.png" class="play"/></a>
+                            #{linha[0]} 
                         </div>
                     </ui:repeat>
 
