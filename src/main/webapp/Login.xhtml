@@ -9,71 +9,55 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
-        <title>Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="Login.css"/>
-    </head>
-    <body class = "corpo">
-        <form class="formulario" method="post" action="/senha">
-            <div class="form-row col-md-9" >
-                <div class="form-group col">
-                    <h5 class="frase">Seja bem vindo novamente. Efetue seu cadastro</h5>
-                </div>
-            </div>
-            
-            <div class="form-row col-md-9">
-                <div class="form-group2 col" >
-                    <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
-                    <input name="username" type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
+
+    <ui:composition template="/DecomCity.xhtml">
+        
+        <ui:define name="titulo">Login</ui:define>
+        <ui:define name="conteudo">
+            <link rel="stylesheet" href="Login.css"/>
+            <form class="formulario" method="post" action="/senha">
+                <div class="form-row" style="width: 100%">
+                    <div class="form-group col">
+                        <h5 class="frase">Entre com seus dados</h5>
+                    </div>
                 </div>
 
-            </div>
-            <div class="form-row col-md-9">
-                
-                <div class="form-group2 col" >
-                    <label class="label" for="inputSenha" >Senha</label>
-                    <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
-                </div>
-                
-            </div>
-            <div class="form-row col-md-9">
-               <div class="texto">
-                   <p class="lembrete">Esqueceu sua senha?</p>
-                </div> 
-            </div>
-            
-            <div class="form-row col-md-9">
-                
-                <div class="form-group3 col" >
-                    <button type="submit" class="btnGoogle">Entre com o google</button>
-                </div>
-            </div>
+                <div class="form-row" style="width: 100%">
+                    <div class="form-group2 col" style="width: 100%" >
+                        <label class="label" for="inputCPF/CNPJ">CPF/CNPJ</label>
+                        <input name="username" type="text" class="form-control" id="inputAddress" placeholder="CPF/CNPJ"/>
+                    </div>
 
-            <div class="form-row col-md-9" >
-                <div class="form-group3 col" >
-                    <button type="submit" class="btnFacebook">Entre com o facebook</button>
                 </div>
-            </div>
+                <div class="form-row">
 
-            <div class="form-row col-md-9">
-                <div class="form-group3 col" >
-                    <button type="submit" class="btnLikedin">Entre com linkedin</button>
+                    <div class="form-group2 col" style="width: 100%">
+                        <label class="label" for="inputSenha" >Senha</label>
+                        <input  name="password" type="password" class="form-control" id="inputPassword4" placeholder="Senha"/>
+                    </div>
+
                 </div>
-            </div>
-            <div class="form-row col-md-9">
-                <div class="form-group3 col" >
-                    <button type="submit" class="btnCancelar">Cancelar</button>
-                     
+                <div class="form-row" style="width: 100%">
+                    <div class="texto">
+                        <p class="lembrete">Esqueceu sua senha?</p>
+                    </div> 
                 </div>
-                <div class="form-group3 col" >
-                     <button type="submit" class="btnEnviar">Entrar</button>
-                </div>
+
                 
-                
-               
-            </div>    
-        </form>
-    </body>
+                <div class="form-row">
+                    <div class="form-group3 col" style="width: 100%">
+                        <button type="submit" class="btnCancelar">Cancelar</button>
+
+                    </div>
+                    <div class="form-group3 col" >
+                        <button type="submit" class="btnEnviar">Entrar</button>
+                    </div>
+
+
+
+                </div>    
+            </form>
+        </ui:define>
+    </ui:composition>
+
 </html>

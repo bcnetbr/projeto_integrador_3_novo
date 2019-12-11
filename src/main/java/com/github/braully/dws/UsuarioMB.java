@@ -30,8 +30,10 @@ public class UsuarioMB {
     
     public void salvarUsuario(){
         
+        usuario.setAtivado(true);
         usuarioDao.save(usuario);
-        FacesContext . getCurrentInstance(). addMessage( null , new FacesMessage ("Usuárior salvo com sucesso"));
+        FacesMessage faceMsg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Cadastro de usuário","Cadastrado com sucesso");
+        FacesContext . getCurrentInstance(). addMessage( "msgValidador" , faceMsg);
         usuario = new Usuario();
     }
     

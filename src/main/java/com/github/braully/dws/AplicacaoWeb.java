@@ -58,6 +58,7 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
         //servletContext.setInitParameter("javax.faces.DEFAULT_SUFFIX", ".html");
     }
+
     @Bean
     public static CustomScopeConfigurer viewScope() {
         CustomScopeConfigurer configurer = new CustomScopeConfigurer();
@@ -65,9 +66,23 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 Map.of("view", new ViewScope()));
         return configurer;
     }
-     @Bean
+
+    @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        //return new BCryptPasswordEncoder();
+        
+       return new PasswordEncoder() {
+           @Override
+          public String encode(CharSequence cs) {
+               return cs.toString();
+           }
+
+            @Override
+           public boolean matches(CharSequence cs, String string) {
+               return cs.toString().equals(string);
+          }
+        };
+
     }
 
     @Bean
@@ -81,14 +96,19 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 .roles("EMPREENDEDOR").build();
         return new InMemoryUserDetailsManager(user, admin);
     }
-    //@Autowired
-   // public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-       // auth.jdbcAuthentication().dataSource(datasource())
-                //.usersByUsernameQuery(
-                //        "select nome,senha, enabled from usuarios where nome=?")
-                //.authoritiesByUsernameQuery(
-                //        "select nome, tipo from usuarios where nome=?");
-   // }
+
+    @Autowired
+    DataSource dataSource2;
+
+    @Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(datasource())
+                .usersByUsernameQuery(
+                        "select nome as username, senha as password, true as enabled from usuario where nome=?")
+                .authoritiesByUsernameQuery(
+                        "select nome as username, tipo as role from usuario where nome=?");
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -98,21 +118,24 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 .antMatchers("**/*.css", "/*.css", "/*.png").permitAll()
                 //.antMatchers("/todas-solicitacoes").hasRole("ADMIN")
                 .antMatchers("/Sobre.xhtml").permitAll()
-                .antMatchers("/Votacoes.xhtml").hasRole("COMUM")
-                .antMatchers("/Resultados.xhtml").hasRole("EMPREENDEDOR")
+                .antMatchers("/Votacoes.xhtml").hasRole("Usuário comum")
+                .antMatchers("/Resultados.xhtml").hasRole("Empreendedor")
                 .antMatchers("/cadastroNecessidade.xhtml").permitAll()
                 .antMatchers("/.xhtml").permitAll()
-                
                 .anyRequest().authenticated().and()
                 .formLogin().loginPage("/Login.xhtml").loginProcessingUrl("/senha")
                 .successForwardUrl("/Principal.xhtml")
                 .permitAll().and()
                 .logout().permitAll();
     }
-    
-        @Bean
+
+    @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource datasource() {
         return DataSourceBuilder.create().build();
+    }
+
+    private void authoritiesByUsernameQuery(String select_nome_as_login_tipo_from_usuario_wh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

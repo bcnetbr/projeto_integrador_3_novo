@@ -41,6 +41,8 @@ public class Usuario {
     Date dataNasc;
     @Basic
     String senha;
+    @Basic
+    boolean ativado;
 
     public long getId() {
         return id;
@@ -97,6 +99,16 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public boolean isAtivado() {
+        return ativado;
+    }
+
+    public void setAtivado(boolean ativado) {
+        this.ativado = ativado;
+    }
+
+   
     
 
 }
