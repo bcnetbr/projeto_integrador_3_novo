@@ -15,20 +15,7 @@ and open the template in the editor.
                     <div>
                         <h2 style="color: #C63A39; margin-left: 300px; margin-top: 42px">Diga-nos o que você precisa</h2>
                         <form jsfc="h:form">
-                            <div>
-                                <label for="cep" class="identificador">Insira o CEP</label>
-                                <h:inputText id="cep" class="formulario"></h:inputText>
-                                <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="cep">Não sei meu CEP</a>
-                            </div>
-                            <label for="country" class="identificador">Selecione o usuario</label>
-                            <h:selectOneMenu id="us" class="selecionar" converter="#{converterEntity}"
-                                             value="#{necessidadePorBairroMB.necessidadePorBairro.usuario}">
-
-                                <f:selectItems  value="#{necessidadePorBairroMB.listaUsuario}"
-                                                var="usr" itemValue="#{usr}"
-                                                itemLabel="#{usr.nome}"/>
-                            </h:selectOneMenu>
-                            
+                           
                             <label for="country" class="identificador">Selecione o Pais</label>
                             <h:selectOneMenu id="pais" class="selecionar" converter="#{converterEntity}" value="#{necessidadePorBairroMB.necessidadePorBairro.pais}">
 
