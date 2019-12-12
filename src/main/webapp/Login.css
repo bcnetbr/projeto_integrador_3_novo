@@ -16,7 +16,7 @@
     font-family: Century Gothic;
     color:#c63a39; 
     font-size:75%;
-    
+    margin-left: 400px;
 }
 .texto{
     width: 100%;
@@ -141,4 +141,9 @@
     width: 100%; 
     text-align: center;
 
+}
+.formulario{
+    border-color: grey;
+    border-bottom: 1px;
+    width: 500px;
 }
